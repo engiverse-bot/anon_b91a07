@@ -1,0 +1,29 @@
+{
+  "family": "video-transcoder",
+  "containerDefinitions": [
+    {
+      "name": "video-transcoder",
+      "image": "534613823192.dkr.ecr.ap-south-1.amazonaws.com/video-transcoder:latest",
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/video-transcoder",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "environment": [],
+      "mountPoints": [],
+      "volumesFrom": []
+    }
+  ],
+  "executionRoleArn": "arn:aws:iam::534613823192:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::534613823192:role/ECSTask-VideoTranscoder-Role",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "2048"
+}
